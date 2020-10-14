@@ -25,6 +25,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {WelcomeComponent} from './welcome/welcome.component';
+import { InfoService } from '../info/info.service';
 
 @NgModule({
   imports: [
@@ -38,8 +39,8 @@ import {WelcomeComponent} from './welcome/welcome.component';
   exports: [
     PageNotFoundComponent,
     WelcomeComponent
-  ]
-
+  ],
+  providers: [InfoService]
 })
 export class PartsModule {
 }
