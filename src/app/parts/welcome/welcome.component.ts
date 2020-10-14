@@ -22,6 +22,7 @@
  */
 
 import {Component, OnInit} from '@angular/core';
+import { InfoService } from '../../info/info.service';
 
 @Component({
   selector: 'app-welcome',
@@ -29,8 +30,16 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  private ip: string;
 
-  constructor() {
+  constructor(private infoService: InfoService) {
+    this.init();
+  }
+
+  init() {
+    this.infoService.getInfo().subscribe(info => {
+      this.ip = info.ip;
+    });
   }
 
   ngOnInit() {
